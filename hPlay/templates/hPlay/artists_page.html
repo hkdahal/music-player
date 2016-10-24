@@ -1,0 +1,169 @@
+{% load staticfiles %}
+
+<div class="music-browse">
+    <!--albums-->
+    <!-- pop-up-box -->
+            <link href="{% static 'css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all">
+            <script src="{% static 'js/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+             <script>
+                    $(document).ready(function() {
+                    $('.popup-with-zoom-anim').magnificPopup({
+                        type: 'inline',
+                        fixedContentPos: false,
+                        fixedBgPos: true,
+                        overflowY: 'auto',
+                        closeBtnInside: true,
+                        preloader: false,
+                        midClick: true,
+                        removalDelay: 300,
+                        mainClass: 'my-mfp-zoom-in'
+                    });
+                    });
+            </script>
+    <!--//pop-up-box -->
+
+
+    <div class="browse">
+        <div class="tittle-head two">
+            <h3 class="tittle">New Releses <span class="new">New</span></h3>
+            <a href="browse.html"><h4 class="tittle third">See all</h4></a>
+            <div class="clearfix"> </div>
+        </div>
+
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+
+            <ul id="myTab" class="nav nav-tabs" role="tablist">
+
+                <li role="presentation" class="active"><a href="#english" id="english-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">English</a></li>
+                <li role="presentation" class=""><a href="#hindi" role="tab" id="hindi-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Hindi</a></li>
+
+                <li role="presentation" class="dropdown">
+                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">
+                        Random<span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
+                        <li><a href="#dropdown1" tabindex="-1" role="tab" id="dropdown1-tab" data-toggle="tab" aria-controls="dropdown1">Melody</a></li>
+                        <li><a href="#dropdown2" tabindex="-1" role="tab" id="dropdown2-tab" data-toggle="tab" aria-controls="dropdown2">Classic</a></li>
+                    </ul>
+                </li>
+
+                <li role="presentation"><a href="#nepali" id="nepali-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Nepali</a></li>
+
+                <li role="presentation" class=""><a href="#dzongkha" role="tab" id="dzongkha-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Dzongkha</a></li>
+
+            </ul>
+
+            <div id="myTabContent" class="tab-content">
+
+
+                <div role="tabpanel" class="tab-pane fade active in" id="english" aria-labelledby="english-tab">
+
+                    <div class="browse-inner">
+
+                        {% for artist in english_artists %}
+                            {% with 'posters/artists/'|add:artist.image as  artist_image%}
+                                <div class="col-md-3 artist-grid">
+                                    <a  href="/artist/{{ artist }}/"><img src=" {% static artist_image %}" title="{{ artist}}"></a>
+                                    <a href="/artist/{{ artist }}/"><i class="glyphicon glyphicon-play-circle"></i></a>
+                                    <a class="art" href="/artist/{{ artist}}/">{{ artist }}</a>
+                                </div>
+                            {% endwith %}
+
+                        {% endfor %}
+
+
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane fade" id="dzongkha" aria-labelledby="dzongkha-tab">
+
+                    <div class="browse-inner">
+
+                        <!-- /agileits -->
+                        <div class="col-md-3 artist-grid">
+                            <a  href="/artist/bipul/"><img src=" {% static 'images/a2.jpg' %}" title="allbum-name"></a>
+                            <a href="/artist/bipul/"><i class="glyphicon glyphicon-play-circle"></i></a>
+                            <a class="art" href="/artist/bipul/">Dzongkha Artist</a>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane fade" id="hindi" aria-labelledby="hindi-tab">
+
+                    <div class="browse-inner">
+
+                        {% for artist in hindi_artists %}
+                            {% with 'posters/artists/'|add:artist.image as  artist_image%}
+                                <div class="col-md-3 artist-grid">
+                                    <a  href="/artist/{{ artist }}/"><img src=" {% static artist_image %}" title="{{ artist }}"></a>
+                                    <a href="/artist/{{ artist}}/"><i class="glyphicon glyphicon-play-circle"></i></a>
+                                    <a class="art" href="/artist/{{ artist}}/">{{ artist }}</a>
+                                </div>
+                            {% endwith %}
+
+                        {% endfor %}
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="nepali" aria-labelledby="nepali-tab">
+
+                    <div class="browse-inner">
+
+                        {% for artist in nepali_artists %}
+                            {% with 'posters/artists/'|add:artist.image as  artist_image%}
+                                <div class="col-md-3 artist-grid">
+                                    <a  href="/artist/{{artist}}/"><img src=" {% static artist_image %}" title="{{artist}}"></a>
+                                    <a href="/artist/{{artist}}/"><i class="glyphicon glyphicon-play-circle"></i></a>
+                                    <a class="art" href="/artist/{{artist}}/">{{ artist }}</a>
+                                </div>
+                            {% endwith %}
+                        {% endfor %}
+
+
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+
+                <div role="tabpanel" class="tab-pane fade" id="dropdown1" aria-labelledby="dropdown1-tab">
+                    <div class="browse-inner">
+
+                        <!-- /agileits -->
+                        <div class="col-md-3 artist-grid">
+                            <a  href="/artist/bipul/"><img src=" {% static 'images/a5.jpg' %}" title="allbum-name"></a>
+                            <a href="/artist/bipul/"><i class="glyphicon glyphicon-play-circle"></i></a>
+                            <a class="art" href="/artist/bipul/">A R Rahman</a>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="dropdown2" aria-labelledby="dropdown2-tab">
+                    <div class="browse-inner">
+
+                        <!-- /agileits -->
+                        <div class="col-md-3 artist-grid">
+                            <a  href="/artist/bipul/"><img src=" {% static 'images/a6.jpg' %}" title="allbum-name"></a>
+                            <a href="/artist/bipul/"><i class="glyphicon glyphicon-play-circle"></i></a>
+                            <a class="art" href="/artist/bipul/">A R Rahman</a>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"> </div>

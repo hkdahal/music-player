@@ -1,0 +1,52 @@
+{% load staticfiles %}
+
+<div class="music-browse">
+    <!--albums-->
+    <!-- pop-up-box -->
+    <link href="{% static 'css/popuo-box.css' %}" rel="stylesheet" type="text/css" media="all">
+    <script src="{% static 'js/jquery.magnific-popup.js' %}" type="text/javascript"></script>
+     <script>
+            $(document).ready(function() {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+            });
+    </script>
+    <!--//pop-up-box -->
+
+    <div class="browse">
+        <div class="tittle-head two">
+            <h3 class="tittle">New Releses <span class="new">New</span></h3>
+            <a href="browse.html"><h4 class="tittle third">See all</h4></a>
+            <div class="clearfix"> </div>
+        </div>
+
+        <div class="col-md-3 browse-grid">
+            <a  href="/songs"><img src="{% static 'posters/cover arts/All.jpg' %}" title="All Songs"></a>
+            <a href="/songs"><i class="glyphicon glyphicon-play-circle"></i></a>
+            <a class="sing" href="/songs">All Songs</a>
+        </div>
+
+        {% for playlist in playlist_list %}
+            {% with 'posters/cover arts/'|add:playlist.cover_art as  cover_image%}
+                <div class="col-md-3 browse-grid">
+                    <a  href="/playlist/{{ playlist }}"><img src="{% static cover_image %}" title="{{ playlist }}"></a>
+                    <a href="/playlist/{{ playlist }}"><i class="glyphicon glyphicon-play-circle"></i></a>
+                    <a class="sing" href="/playlist/{{ playlist }}">{{ playlist }}</a>
+                </div>
+            {% endwith %}
+        {% endfor %}
+
+
+        <div class="clearfix"> </div>
+    </div>
+
+</div>

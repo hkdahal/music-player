@@ -1,0 +1,85 @@
+
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+
+{% include 'hPlay/widgets/head.html' %}
+    	 <!-- /w3layouts-agile -->
+ <body class="sticky-header left-side-collapsed"  onload="initMap()">
+
+
+ <section>
+     {% include 'hPlay/widgets/left_slidebar.html' %}
+
+     {% include 'hPlay/widgets/app_modal.html' %}
+
+     {% include 'hPlay/widgets/sign_up_modal.html' %}
+
+
+		<!-- left side end-->
+		<!-- main content start-->
+		<div class="main-content">
+
+			<!-- header-starts -->
+			<div class="header-section">
+
+                <!--toggle button start-->
+                <a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i></a>
+                <!--toggle button end-->
+
+                <!--notification menu start -->
+				<div class="menu-right">
+					<div class="profile_details">
+
+                        {% include 'hPlay/widgets/search.html' %}
+                        {% include 'hPlay/widgets/header_audio_player.html' %}
+
+                        {% include 'hPlay/widgets/login.html' %}
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+
+
+            <div id="page-wrapper">
+				<div class="inner-content">
+
+                    {% block innerContent %}
+                        <div class="music-left">
+                            {% include 'hPlay/widgets/banner.html' %}
+
+                            {% include 'hPlay/widgets/album_section.html' %}
+
+                            {% include 'hPlay/widgets/discover_section.html' %}
+                            <!--//discover-view-->
+                        </div>
+
+                        {% include 'hPlay/widgets/music_right.html' %}
+
+                        <div class="clearfix"></div>
+
+                    {% endblock innerContent %}
+                </div>
+						<!--body wrapper start-->
+                {% include 'hPlay/widgets/featured.html' %}
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+     {% include 'hPlay/widgets/footer.html' %}
+ </section>
+
+  
+<script src=" {% static 'js/jquery.nicescroll.js' %} "></script>
+<script src=" {% static 'js/scripts.js' %} "></script>
+<!-- Bootstrap Core JavaScript -->
+<script src=" {% static 'js/bootstrap.js' %} "></script>
+</body>
+</html>

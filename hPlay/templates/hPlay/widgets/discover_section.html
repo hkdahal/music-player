@@ -1,0 +1,42 @@
+{% load staticfiles %}
+{% load filters %}
+
+<div class="albums second">
+    <div class="tittle-head">
+        <h3 class="tittle">Discover <span class="new">View</span></h3>
+        <a href="/"><h4 class="tittle two">See all</h4></a>
+        <div class="clearfix"> </div>
+    </div>
+
+
+
+    {% for a in '3'|featured_artists %}
+        <div class="col-md-3 content-grid">
+            {% with 'posters/artists/'|add:a.image as  artist_image%}
+                <a href="/artist/{{ a }}"><img src=" {% static artist_image %} " title="{{ a }}"></a>
+            {% endwith %}
+            <div class="inner-info"><a href="/artist/{{ a }}"><h5>Pop</h5></a></div>
+        </div>
+
+     {% endfor %}
+
+
+
+    {% for p in 'something'|discover_playlist %}
+        <div class="col-md-3 content-grid">
+            {% with 'posters/cover arts/'|add:p.cover_art as  cover_image%}
+                <a href="/playlist/{{ p }}"><img src=" {% static cover_image %} " title="{{ p }}"></a>
+            {% endwith %}
+            <div class="inner-info"><a href="/playlist/{{ p }}"><h5>Mix</h5></a></div>
+        </div>
+
+    {% endfor %}
+
+
+
+
+
+
+    <div class="clearfix"> </div>
+
+</div>

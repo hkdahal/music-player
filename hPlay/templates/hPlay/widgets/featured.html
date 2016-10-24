@@ -1,0 +1,57 @@
+{% load staticfiles %}
+{% load filters %}
+
+<div class="review-slider">
+    <div class="tittle-head">
+        <h3 class="tittle">Featured Albums <span class="new"> New</span></h3>
+        <div class="clearfix"> </div>
+    </div>
+     <ul id="flexiselDemo1">
+
+         {% for a in '8'|featured_artists %}
+             <li>
+                 {% with 'posters/artists/'|add:a.image as  artist_image%}
+                     <a href="artist/{{ a }}"><img src=" {% static artist_image %} " alt="{{ a }}"/></a>
+                 {% endwith %}
+
+                 <div class="slide-title"><h4>{{ a }} </h4> </div>
+                 <div class="date-city">
+                     <h5>{{ a.language }}</h5>
+                     <div class="buy-tickets">
+                         <a href="artist/{{ a }}">READ MORE</a>
+                     </div>
+                 </div>
+             </li>
+         {% endfor %}
+
+    </ul>
+
+<script type="text/javascript">
+$(window).load(function() {
+
+$("#flexiselDemo1").flexisel({
+    visibleItems: 5,
+    animationSpeed: 1000,
+    autoPlay: true,
+    autoPlaySpeed: 3000,
+    pauseOnHover: false,
+    enableResponsiveBreakpoints: true,
+    responsiveBreakpoints: {
+        portrait: {
+            changePoint:480,
+            visibleItems: 2
+        },
+        landscape: {
+            changePoint:640,
+            visibleItems: 3
+        },
+        tablet: {
+            changePoint:800,
+            visibleItems: 4
+        }
+    }
+});
+});
+</script>
+<script type="text/javascript" src=" {% static 'js/jquery.flexisel.js' %} "></script>
+</div>

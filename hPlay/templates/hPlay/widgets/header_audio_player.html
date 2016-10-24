@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+<div class="col-md-4 player">
+        <div class="audio-player">
+            <audio id="audio-player"  controls="controls">
+            <source src=" {% static 'media/Behti Hawa Sa Tha Woh.mp3' %} " type="audio/mpeg">
+
+        </audio>
+        </div>
+<!---->
+
+    <script type="text/javascript">
+        $(function(){
+          $('#audio-player').mediaelementplayer({
+            alwaysShowControls: true,
+            features: ['playpause','progress','volume'],
+            audioVolume: 'horizontal',
+            iPadUseNativeControls: true,
+            iPhoneUseNativeControls: true,
+            AndroidUseNativeControls: true
+        });
+     });
+    </script>
+<!--audio-->
+
+
+  <link rel="stylesheet" type="text/css" media="all" href=" {%  static 'css/audio.css' %} ">
+  <script type="text/javascript" src=" {% static 'js/mediaelement-and-player.min.js' %} "></script>
+    <!---->
+
+
+<!--//-->
+    <ul class="next-top">
+        <li><a class="ar" href="#"> <img src=" {% static 'images/arrow.png' %} " alt=""/></a></li>
+        <li><a class="ar2" href="#"><img src=" {% static 'images/arrow2.png' %} " alt=""/></a></li>
+    </ul>
+</div>

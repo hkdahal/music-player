@@ -1,0 +1,20 @@
+{% extends 'hPlay/base.html' %}
+{% load staticfiles %}
+
+
+{% block innerContent %}
+
+    {% if artists %}
+        {% include 'hPlay/artists_page.html' %}
+    {% elif playlists %}
+        {% include 'hPlay/playlists_page.html' %}
+    {% else %}
+        <div class="single_left">
+            {% include 'hPlay/player/small_player.html' %}
+        </div>
+        <div class="clearfix"> </div>
+        {% include 'hPlay/widgets/comment.html' %}
+
+        <div class="clearfix"> </div>
+    {% endif %}
+{% endblock innerContent %}

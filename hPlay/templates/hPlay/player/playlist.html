@@ -1,0 +1,11 @@
+    <div class="sm2-playlist-wrapper">
+
+        <ul class="sm2-playlist-bd">
+
+         <!-- standard one-line items -->
+            {% for song in playlist %}
+                <li><a href="{{ song.url }}"><b>{{ song.artist }}</b> - {{ song.title }}</a></li>
+            {% endfor %}
+
+        </ul>
+    </div>
