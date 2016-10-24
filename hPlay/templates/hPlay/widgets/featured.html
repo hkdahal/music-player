@@ -11,14 +11,14 @@
          {% for a in '8'|featured_artists %}
              <li>
                  {% with 'posters/artists/'|add:a.image as  artist_image%}
-                     <a href="artist/{{ a }}"><img src=" {% static artist_image %} " alt="{{ a }}"/></a>
+                     <a href="artist/{{ a }}/"><img src=" {% static artist_image %} " alt="{{ a }}"/></a>
                  {% endwith %}
 
                  <div class="slide-title"><h4>{{ a }} </h4> </div>
                  <div class="date-city">
                      <h5>{{ a.language }}</h5>
                      <div class="buy-tickets">
-                         <a href="artist/{{ a }}">READ MORE</a>
+                         <a href="artist/{{ a }}/">READ MORE</a>
                      </div>
                  </div>
              </li>

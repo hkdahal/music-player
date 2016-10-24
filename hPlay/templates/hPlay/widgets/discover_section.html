@@ -18,9 +18,9 @@
             content-grid">
         {% endif %}
                 {% with 'posters/artists/'|add:a.image as  artist_image%}
-                    <a href="/artist/{{ a }}"><img src=" {% static artist_image %} " title="{{ a }}"></a>
+                    <a href="/artist/{{ a }}/"><img src=" {% static artist_image %} " title="{{ a }}"></a>
                 {% endwith %}
-                <div class="inner-info"><a href="/artist/{{ a }}"><h5>Pop</h5></a></div>
+                <div class="inner-info"><a href="/artist/{{ a }}/"><h5>Pop</h5></a></div>
             </div>
 
      {% endfor %}
@@ -34,9 +34,9 @@
             content-grid">
         {% endif %}
             {% with 'posters/cover arts/'|add:p.cover_art as  cover_image%}
-                <a href="/playlist/{{ p }}"><img src=" {% static cover_image %} " title="{{ p }}"></a>
+                <a href="/playlist/{{ p }}/"><img src=" {% static cover_image %} " title="{{ p }}"></a>
             {% endwith %}
-            <div class="inner-info"><a href="/playlist/{{ p }}"><h5>Mix</h5></a></div>
+            <div class="inner-info"><a href="/playlist/{{ p }}/"><h5>Mix</h5></a></div>
         </div>
 
     {% endfor %}
