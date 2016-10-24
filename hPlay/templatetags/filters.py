@@ -7,13 +7,13 @@ register = template.Library()
 
 @register.filter
 def featured_artists(something):
-    return Artist.objects.all()[:int(something)]
+    return Artist.objects.all()
 
 
 @register.filter
 def discover_playlist(something):
     playlists = Playlist.objects.all()
-    return playlists[:4]
+    return playlists[:3]
 
 
 @register.filter
