@@ -10,20 +10,29 @@
 
 
 
-    {% for a in '3'|featured_artists %}
-        <div class="col-md-3 content-grid">
-            {% with 'posters/artists/'|add:a.image as  artist_image%}
-                <a href="/artist/{{ a }}"><img src=" {% static artist_image %} " title="{{ a }}"></a>
-            {% endwith %}
-            <div class="inner-info"><a href="/artist/{{ a }}"><h5>Pop</h5></a></div>
-        </div>
+    {% for a in '4'|featured_artists %}
+        <div class="col-md-3 content-grid
+        {% if forloop.counter|mod_true:4 %}
+            last-grid">
+        {% else %}
+            content-grid">
+        {% endif %}
+                {% with 'posters/artists/'|add:a.image as  artist_image%}
+                    <a href="/artist/{{ a }}"><img src=" {% static artist_image %} " title="{{ a }}"></a>
+                {% endwith %}
+                <div class="inner-info"><a href="/artist/{{ a }}"><h5>Pop</h5></a></div>
+            </div>
 
      {% endfor %}
 
 
-
     {% for p in 'something'|discover_playlist %}
-        <div class="col-md-3 content-grid">
+        <div class="col-md-3 content-grid
+        {% if forloop.counter|mod_true:4 %}
+            last-grid">
+        {% else %}
+            content-grid">
+        {% endif %}
             {% with 'posters/cover arts/'|add:p.cover_art as  cover_image%}
                 <a href="/playlist/{{ p }}"><img src=" {% static cover_image %} " title="{{ p }}"></a>
             {% endwith %}

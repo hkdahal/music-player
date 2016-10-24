@@ -13,7 +13,7 @@ def featured_artists(something):
 @register.filter
 def discover_playlist(something):
     playlists = Playlist.objects.all()
-    return playlists[:3]
+    return playlists[:4]
 
 
 @register.filter
@@ -24,3 +24,11 @@ def new_releases(something):
     artists.extend(playlists)
 
     return artists[:8]
+
+
+@register.filter
+def mod_true(num, mod_by):
+    if num % mod_by == 1:
+        return True
+    else:
+        return False
