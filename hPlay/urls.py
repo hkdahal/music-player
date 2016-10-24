@@ -13,11 +13,11 @@ urlpatterns = [
         views.songs_per_artist,
         name='artist songs'),
 
-    url(r'^artists/$', views.artists, name='Artists'),
+    url(r'^artists/', views.artists, name='Artists'),
 
-    url(r'^playlists/$', views.playlists, name='Playlist'),
+    url(r'^playlists/', views.playlists, name='Playlist'),
 
-    url(r'^songs/$', views.songs, name='Songs'),
+    url(r'^songs/', views.songs, name='Songs'),
 
     url(r'^404/', views.error_404, name="404")
 ]
