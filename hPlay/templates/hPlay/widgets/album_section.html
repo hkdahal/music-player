@@ -34,7 +34,7 @@
 
 
         <div class="col-md-3 content-grid
-        {% if forloop.counter == 4 %}
+        {% if forloop.counter|divisibleby:4 %}
             last-grid
         {% endif %} ">
             <a class="play-icon popup-with-zoom-anim" href="#video-{{ forloop.counter }}">

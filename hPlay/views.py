@@ -5,7 +5,7 @@ from hPlay.models import Song, Artist, Playlist, Video
 
 def index(request):
     bipul_songs = Song.objects.filter(artist__first_name__iexact="bipul")
-    videos = Video.objects.all()[:3]
+    videos = Video.objects.all()
     return render(request, 'hPlay/base.html', context={
         'playlist': bipul_songs,
         'videos': videos})
