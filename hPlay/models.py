@@ -68,3 +68,7 @@ class Video(models.Model):
                                 default=LANGUAGE_CHOICES[0][0])
     image = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.title
+
+

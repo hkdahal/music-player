@@ -23,69 +23,36 @@
 
 
 <div class="albums">
-        <div class="tittle-head">
-            <h3 class="tittle">New Releases <span class="new">New</span></h3>
-            <a href="/"><h4 class="tittle">See all</h4></a>
-            <div class="clearfix"> </div>
+    <div class="tittle-head">
+        <h3 class="tittle">New Releases <span class="new">New</span></h3>
+        <a href="/"><h4 class="tittle">See all</h4></a>
+        <div class="clearfix"> </div>
+    </div>
+
+
+    {% for v in videos %}
+
+
+        <div class="col-md-3 content-grid
+        {% if forloop.counter == 4 %}
+            last-grid
+        {% endif %} ">
+            <a class="play-icon popup-with-zoom-anim" href="#video-{{ forloop.counter }}">
+                {% with 'posters/cover arts/'|add:v.image as  image%}
+                <img src=" {% static image %} " title="{{ v }}">
+                {% endwith %}
+            </a>
+            <a class="button play-icon popup-with-zoom-anim" href="#video-{{ forloop.counter }}"><i class="glyphicon glyphicon-play-circle"></i></a>
+            <a class="button play-icon popup-with-zoom-anim" href="#video-{{ forloop.counter }}">Watch now</a>
         </div>
 
-    <div class="col-md-3 content-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src=" {% static 'posters/cover arts/AajaKina.png' %} " title="allbum-name"></a>
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-play-circle"></i></a>
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-    </div>
+        <!-- Video -->
+        <div id="video-{{ forloop.counter }}" class="mfp-hide ">
+            <iframe src="{{ v.url }}"></iframe>
+        </div>
 
-    <!-- Videos -->
-    <div id="small-dialog" class="mfp-hide">
-        <iframe src="https://www.youtube.com/embed/pUAska69jL4"></iframe>
-    </div>
+    {% endfor %}
 
-    <div id="small-dialog-mero" class="mfp-hide">
-        <iframe src="https://www.youtube.com/embed/VKjmtTQW_GA"></iframe>
-    </div>
-
-    <div class="col-md-3 content-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog-mero"><img src=" {% static 'posters/cover arts/BariLai.png' %} " title="allbum-name"></a>
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog-mero"><i class="glyphicon glyphicon-play-circle"></i></a>
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog-mero">Listen now</a>
-    </div>
-
-    <div class="col-md-3 content-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src=" {% static 'posters/cover arts/ThamelBazaar.png' %} " title="allbum-name"></a>
-
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-    </div>
-
-    <!-- Last Grid -->
-    <div class="col-md-3 content-grid last-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src=" {% static 'images/v4.jpg' %} " title="allbum-name"></a>
-
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-    </div>
-
-    <div class="col-md-3 content-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src=" {% static 'images/v5.jpg' %} " title="allbum-name"></a>
-
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-    </div>
-
-    <div class="col-md-3 content-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src=" {% static 'images/v6.jpg' %} " title="allbum-name"></a>
-
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-    </div>
-
-    <div class="col-md-3 content-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src=" {% static 'images/v7.jpg' %} " title="allbum-name"></a>
-
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-    </div>
-
-    <!-- Last Grid -->
-    <div class="col-md-3 content-grid last-grid">
-        <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><img src=" {% static 'images/v8.jpg' %} " title="allbum-name"></a>
-        <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Listen now</a>
-    </div>
 
     <div class="clearfix"> </div>
 

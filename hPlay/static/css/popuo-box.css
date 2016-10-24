@@ -8,6 +8,16 @@
 	position: relative;
 	text-align:center;
 }
+
+#video-1, #video-2, #video-3, #video-4, #video-5, #video-6, #video-7, #video-8{
+	background: #FFF;
+	padding:20px;
+	text-align: left;
+	max-width: 700px;
+	margin: 40px auto;
+	position: relative;
+	text-align:center;
+}
 #small-dialog-it,#small-dialog-in,#small-dialog-fr,#small-dialog-sh,#small-dialog-sf,#small-dialog-su,#small-dialog-me,#small-dialog-ch,#small-dialog-pi,#small-dialog-am {
 	background: white;
 	padding:20px;

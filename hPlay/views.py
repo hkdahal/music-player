@@ -1,11 +1,14 @@
 from django.shortcuts import render
 
-from hPlay.models import Song, Artist, Playlist
+from hPlay.models import Song, Artist, Playlist, Video
 
 
 def index(request):
     bipul_songs = Song.objects.filter(artist__first_name__iexact="bipul")
-    return render(request, 'hPlay/base.html', context={'playlist': bipul_songs})
+    videos = Video.objects.all()[:3]
+    return render(request, 'hPlay/base.html', context={
+        'playlist': bipul_songs,
+        'videos': videos})
 
 
 def songs_per_artist(request, name):
