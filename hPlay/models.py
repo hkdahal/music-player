@@ -54,3 +54,17 @@ class Song(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Video(models.Model):
+    title = models.CharField(max_length=1000)
+    artist = models.ForeignKey(Artist)
+    url = models.CharField(max_length=1000)
+    genre = models.CharField(max_length=50,
+                             choices=GENRE_CHOICES,
+                             default=GENRE_CHOICES[0][0])
+    language = models.CharField(max_length=10,
+                                choices=LANGUAGE_CHOICES,
+                                default=LANGUAGE_CHOICES[0][0])
+    image = models.CharField(max_length=100)
+
