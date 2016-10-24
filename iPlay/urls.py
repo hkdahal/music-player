@@ -20,3 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('hPlay.urls'))
 ]
+
+handler404 = 'hPlay.views.error_404'

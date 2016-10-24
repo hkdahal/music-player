@@ -50,3 +50,7 @@ def songs(request):
     songs = Song.objects.all().order_by('title')
 
     return render(request, 'hPlay/content_page.html', context={'playlist': songs})
+
+
+def error_404(request):
+    return render(request, 'hPlay/content_page.html', context={'errors': True})

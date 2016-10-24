@@ -18,4 +18,6 @@ urlpatterns = [
     url(r'^playlists/$', views.playlists, name='Playlist'),
 
     url(r'^songs/$', views.songs, name='Songs'),
+
+    url(r'^404/', views.error_404, name="404")
 ]

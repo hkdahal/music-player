@@ -8,6 +8,8 @@
         {% include 'hPlay/artists_page.html' %}
     {% elif playlists %}
         {% include 'hPlay/playlists_page.html' %}
+    {% elif errors %}
+        {% include 'hPlay/404.html' %}
     {% else %}
         <div class="single_left">
             {% include 'hPlay/player/small_player.html' %}
