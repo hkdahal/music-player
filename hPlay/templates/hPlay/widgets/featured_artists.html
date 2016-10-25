@@ -1,0 +1,37 @@
+{% load staticfiles %}
+{% load filters %}
+
+<div class="tittle-head">
+    <h3 class="tittle">Featured Artists <span class="new">View</span></h3>
+    <a href="/"><h4 class="tittle two">See all</h4></a>
+    <div class="clearfix"> </div>
+</div>
+
+<div class="col-md-3 content-grid content-grid">
+    <a href="/artist/bipul/"><img src=" {% static 'posters/artists/BipulChhetri.jpg' %} " title="Bipul"></a>
+    <div class="inner-info"><a href="/artist/bipul/"><h5>Pop</h5></a></div>
+</div>
+
+
+<div class="col-md-3 content-grid content-grid">
+        {% with 'posters/artists/'|add:'AmericanAuthors.png' as  cover_image%}
+            <a href="/artist/American Authors/"><img src=" {% static cover_image %} " title="American Authors"></a>
+        {% endwith %}
+        <div class="inner-info"><a href="/artist/American Authors/"><h5>Mix</h5></a></div>
+</div>
+
+<div class="col-md-3 content-grid content-grid">
+        {% with 'posters/artists/'|add:'TwentyOnePilots.jpg' as  cover_image%}
+            <a href="/artist/Twenty One/"><img src=" {% static cover_image %} " title="Twenty One Pilots"></a>
+        {% endwith %}
+        <div class="inner-info"><a href="/artist/Twenty One/"><h5>Mix</h5></a></div>
+</div>
+
+<div class="col-md-3 content-grid last-grid">
+        {% with 'posters/artists/'|add:'Chainsmokers.jpg' as  cover_image%}
+            <a href="/artist/The Chainsmokers/"><img src=" {% static cover_image %} " title="Chainsmokers"></a>
+        {% endwith %}
+        <div class="inner-info"><a href="/artist/The Chainsmokers/"><h5>Mix</h5></a></div>
+</div>
+
+<div class="clearfix"> </div>

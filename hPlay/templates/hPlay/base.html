@@ -6,7 +6,7 @@
 
 {% include 'hPlay/widgets/head.html' %}
     	 <!-- /w3layouts-agile -->
- <body class="sticky-header left-side-collapsed"  onload="initMap()">
+ <body class="sticky-header left-side-inner">
 
 
  <section>
@@ -53,8 +53,6 @@
                             {% include 'hPlay/widgets/banner.html' %}
 
                             {% include 'hPlay/widgets/album_section.html' %}
-
-                            {% include 'hPlay/widgets/discover_section.html' %}
                             <!--//discover-view-->
                         </div>
 
@@ -69,14 +67,13 @@
             </div>
 
             <div class="clearfix"></div>
-
+        {% include 'hPlay/widgets/footer.html' %}
         </div>
 
-     {% include 'hPlay/widgets/footer.html' %}
+
  </section>
 
-  
-<script src=" {% static 'js/jquery.nicescroll.js' %} "></script>
+
 <script src=" {% static 'js/scripts.js' %} "></script>
 <!-- Bootstrap Core JavaScript -->
 <script src=" {% static 'js/bootstrap.js' %} "></script>
