@@ -12,17 +12,23 @@ def index(request):
 
 
 def songs_per_artist(request, name):
-    songs = Song.objects.filter(artist__first_name__icontains=name.split()[0])
+    songs = Song.objects.filter(
+        artist__first_name__icontains=name.split()[0]).order_by('title')
+    cover = Artist.objects.filter(
+        first_name__icontains=name.split()[0])[0].image
+    cover = 'posters/artists/'+cover
     return render(request,
                   'hPlay/content_page.html',
-                  context={'playlist': songs})
+                  context={'playlist': songs, 'cover': cover})
 
 
 def songs_per_playlist(request, name):
     songs = Song.objects.filter(playlist__name=name)
+    cover = Playlist.objects.filter(name=name)[0].cover_art
+    cover = 'posters/cover arts/' + cover
     return render(request,
                   'hPlay/content_page.html',
-                  context={'playlist': songs})
+                  context={'playlist': songs, 'cover': cover})
 
 
 def artists(request):
@@ -51,8 +57,9 @@ def playlists(request):
 
 def songs(request):
     songs = Song.objects.all().order_by('title')
-
-    return render(request, 'hPlay/content_page.html', context={'playlist': songs})
+    cover = 'posters/cover arts/All.jpg'
+    return render(request, 'hPlay/content_page.html',
+                  context={'playlist': songs, 'cover': cover})
 
 
 def error_404(request):

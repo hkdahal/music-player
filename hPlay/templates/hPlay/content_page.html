@@ -12,6 +12,14 @@
         {% include 'hPlay/404.html' %}
     {% else %}
         <div class="single_left">
+        {% if cover %}
+            <img src="{% static cover %}" width="257" height="257">
+        {% endif %}
+            <br>
+            <br>
+
+            <br>
+            <br>
             {% include 'hPlay/player/small_player.html' %}
         </div>
         <div class="clearfix"> </div>
