@@ -1,6 +1,6 @@
 dj-database-url==0.4.0
 Django==1.9.1
-djangorestframework==3.4.6
+djangorestframework==3.11.2
 gunicorn==19.6.0
 whitenoise==3.2.1
 Pygments==2.1.3
